@@ -38,4 +38,32 @@ public class UserServiceImpl implements UserService {
 
         return null;
     }
+
+    public boolean addUser(User user) {
+        try {
+            // wywołanie metody wewnętrznej isLoginAlreadyExist
+            if (isLoginAlreadyExist(user.getLogin())) {
+                // jeśli tak użyj wyjątku
+                throw new UserLoginAlreadyExistException();
+            }
+
+            if (userValidator.isValidate(user)) {
+                userDao.saveUser(user);
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    private boolean isLoginAlreadyExist(String login) {
+        User user = getUserByLogin(login);
+
+        return user != null;
+    }
+
+    public void removeUserById(Long userId) {
+        userDao.removeUserById(userId);
+    }
 }
