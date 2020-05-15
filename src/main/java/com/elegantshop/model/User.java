@@ -1,19 +1,19 @@
 package com.elegantshop.model;
 
 public class User {
-    private long id;
+    private Long id;
     private String login;
     private String password;
 
     private final static String USER_SEPARATOR = " || ";
 
-    public User(long id, String login, String password) {
+    public User(Long id, String login, String password) {
         this.id = id;
         this.login = login;
         this.password = password;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
