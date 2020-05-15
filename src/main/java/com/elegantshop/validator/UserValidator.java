@@ -15,15 +15,19 @@ public class UserValidator {
         return instance;
     }
 
-    public boolean isValidate(User user) throws UserShortLengthLoginException, UserShortLengthPasswordException {
-        if (isPasswordLengthNoEnough(user.getPassword()))
-            throw new UserShortLengthPasswordException("Password is too short.");
+//    public boolean isValidate(User user) throws UserShortLengthLoginException, UserShortLengthPasswordException {
+//        if (isPasswordLengthNoEnough(user.getPassword()))
+//            throw new UserShortLengthPasswordException("Password is too short.");
+//
+//        if (isLoginLengthNoEnough(user.getLogin()))
+//            throw new UserShortLengthLoginException("Login is too short.");
+//
+//        return true;
+//    }
 
-        if (isLoginLengthNoEnough(user.getLogin()))
-            throw new UserShortLengthLoginException("Login is too short.");
-
+    // główny validator
+    public boolean isValidate(User user) {
         return true;
     }
-
 
 }
