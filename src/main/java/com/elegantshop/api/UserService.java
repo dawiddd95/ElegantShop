@@ -8,7 +8,7 @@ public interface UserService {
     boolean addUser(User user);
 
     List<User> getAllUsers();
-    User getUserByLogin(String login);
+    User getUserById(Long id);
 
     boolean isCorrectLoginAndPassword(String login, String password);
 }
