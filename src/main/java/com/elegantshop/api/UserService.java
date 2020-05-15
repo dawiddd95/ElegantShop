@@ -9,6 +9,7 @@ public interface UserService {
 
     List<User> getAllUsers();
     User getUserById(Long id);
+    User getUserByLogin(String login);
 
     boolean isCorrectLoginAndPassword(String login, String password);
 }
