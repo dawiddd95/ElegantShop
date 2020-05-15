@@ -3,6 +3,7 @@ package com.elegantshop.service;
 import com.elegantshop.api.UserDao;
 import com.elegantshop.api.UserService;
 import com.elegantshop.dao.UserDaoImpl;
+import com.elegantshop.exception.UserLoginAlreadyExistException;
 import com.elegantshop.model.User;
 
 import java.util.List;
