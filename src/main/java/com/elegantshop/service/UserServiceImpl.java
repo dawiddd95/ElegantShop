@@ -5,12 +5,14 @@ import com.elegantshop.api.UserService;
 import com.elegantshop.dao.UserDaoImpl;
 import com.elegantshop.exception.UserLoginAlreadyExistException;
 import com.elegantshop.model.User;
+import com.elegantshop.validator.UserValidator;
 
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
     private static UserServiceImpl instance = null;
     private UserDao userDao = UserDaoImpl.getInstance();
+    private UserValidator userValidator = UserValidator.getInstance();
 
     private UserServiceImpl() { }
 
@@ -56,9 +58,42 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    public User getUserByLogin(String login) {
+        List<User> users = null;
+
+        try {
+            users = getAllUsers();
+            for (User user : users
+            ) {
+                boolean isFoundUser = user.getLogin().equals(login);
+                if (isFoundUser) {
+                    return user;
+                }
+
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return null;
+    }
+
     private boolean isLoginAlreadyExist(String login) {
         User user = getUserByLogin(login);
 
         return user != null;
+    }
+
+    public boolean isCorrectLoginAndPassword(String login, String password) {
+        User foundUser = getUserByLogin(login);
+
+        if (foundUser == null) {
+            return false;
+        }
+
+        boolean isCorrectLogin = foundUser.getLogin().equals(login);
+        boolean isCorrectPass = foundUser.getPassword().equals(password);
+
+        return isCorrectLogin && isCorrectPass;
     }
 }
