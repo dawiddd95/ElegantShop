@@ -41,9 +41,7 @@ public class UserServiceImpl implements UserService {
 
     public boolean addUser(User user) {
         try {
-            // wywołanie metody wewnętrznej isLoginAlreadyExist
             if (isLoginAlreadyExist(user.getLogin())) {
-                // jeśli tak użyj wyjątku
                 throw new UserLoginAlreadyExistException();
             }
 
@@ -61,9 +59,5 @@ public class UserServiceImpl implements UserService {
         User user = getUserByLogin(login);
 
         return user != null;
-    }
-
-    public void removeUserById(Long userId) {
-        userDao.removeUserById(userId);
     }
 }
