@@ -10,59 +10,12 @@ public class Product {
     private int productCount;
     private LocalDateTime createdAt;
 
-    private Product(String mark,String model, BigDecimal price, int productCount, LocalDateTime createdAt) {
+    public Product(String mark,String model, BigDecimal price, int productCount, LocalDateTime createdAt) {
         this.mark = mark;
         this.model = model;
         this.price = price;
         this.productCount = productCount;
         this.createdAt = createdAt;
-    }
-
-    public static class Builder {
-        private String mark;
-        private String model;
-        private BigDecimal price;
-        private int productCount;
-        private LocalDateTime createdAt;
-
-        public Builder() { }
-
-        public Builder setMark(String mark) {
-            this.mark = mark;
-            return this;
-        }
-
-        public Builder setModel(String model) {
-            this.model = model;
-            return this;
-        }
-
-        public Builder setPrice(BigDecimal price) {
-            this.price = price;
-            return this;
-        }
-
-        public Builder setProductCount(int productCount) {
-            this.productCount = productCount;
-            return this;
-        }
-
-        public Builder setCreatedAt(LocalDateTime createdAt) {
-            this.createdAt = createdAt;
-            return this;
-        }
-
-        public Product build() {
-            return new Product(mark, model, price, productCount, createdAt);
-        }
-    }
-
-    protected Product(Builder builder) {
-        mark = builder.mark;
-        model = builder.model;
-        price = builder.price;
-        productCount = builder.productCount;
-        createdAt = builder.createdAt;
     }
 
     public void setPrice(BigDecimal price) {
