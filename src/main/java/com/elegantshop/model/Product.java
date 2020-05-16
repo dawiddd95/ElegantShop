@@ -10,7 +10,7 @@ public class Product {
     private int productCount;
     private LocalDateTime createdAt;
 
-    public Product(String mark,String model, BigDecimal price, int productCount, LocalDateTime createdAt) {
+    public Product(String mark, String model, BigDecimal price, int productCount, LocalDateTime createdAt) {
         this.mark = mark;
         this.model = model;
         this.price = price;
