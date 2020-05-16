@@ -47,7 +47,7 @@ public class Product {
     }
 
     protected String getBasicProductData() {
-        return "Model: "+this.model+", Marka: "+this.mark+", cena: "+this.price+", ilosc: "+this.productCount+", dodane: "+this.createdAt;
+        return "Model: "+model+", Marka: "+mark+", cena: "+price+", ilosc: "+productCount+", dodane: "+createdAt;
     }
 
     @Override
