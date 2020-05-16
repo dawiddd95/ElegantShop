@@ -53,18 +53,6 @@ public class Main {
                         System.out.println("Cos poszło nie tak!");
                     }
                     break;
-                case 3:
-                    System.out.println("Podaj login:");
-                    String loginReg = scanner.next();
-                    System.out.println("Podaj hasło:");
-                    String passwordReg = scanner.next();
-                    User user = new User(1L, loginReg, passwordReg);
-                    if (userFacade.registerUser(user)) {
-                        System.out.println("Zarejestrowałeś się!");
-                    } else {
-                        System.out.println("Cos poszło nie tak!");
-                    }
-                    break;
                 case 0:
                     appOn = false;
                     break;
