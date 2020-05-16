@@ -57,6 +57,14 @@ public class Product {
         }
     }
 
+    protected Product(Builder builder) {
+        mark = builder.mark;
+        model = builder.model;
+        price = builder.price;
+        productCount = builder.productCount;
+        createdAt = builder.createdAt;
+    }
+
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
