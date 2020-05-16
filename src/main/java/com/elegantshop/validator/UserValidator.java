@@ -1,5 +1,6 @@
 package com.elegantshop.validator;
 
+import com.elegantshop.exception.*;
 import com.elegantshop.model.User;
 
 import java.util.function.IntPredicate;
@@ -20,23 +21,10 @@ public class UserValidator {
         return instance;
     }
 
-    public boolean isValidate(User user) {
-        isValidateLogin(user);
-        isValidatePassword(user);
-
-        return true;
-    }
-
-    private boolean isValidateLogin(User user) throws UserShortLenghtLoginException {
+    public boolean isValidate(User user) throws UserShortLengthLoginException, UserNoneUpperLetterPasswordException, UserNoneNumberPasswordException, UserShortLengthPasswordException, UserNoneLowerLetterPasswordException {
         if(!isLoginLengthEnough(user.getLogin()))
             throw new UserShortLengthLoginException("Login must contain at least 6 characters.");
-    }
 
-    private boolean isLoginLengthEnough(String login) {
-        return login.length() >= MIN_LENGTH_LOGIN;
-    }
-
-    private boolean isValidatePassword(User user) throws UserShortLengthPasswordException, UserNoneUpperLetterPasswordException, UserNoneLowerLetterPasswordException, UserNoneNumberPasswordException {
         if(!isPasswordLengthEnough(user.getPassword()))
             throw new UserShortLengthPasswordException("Password must contain at least 8 characters.");
 
@@ -52,7 +40,9 @@ public class UserValidator {
         return true;
     }
 
-
+    private boolean isLoginLengthEnough(String login) {
+        return login.length() >= MIN_LENGTH_LOGIN;
+    }
 
     private boolean isPasswordLengthEnough(String password) {
         return password.length() >= MIN_LENGTH_PASSWORD;
