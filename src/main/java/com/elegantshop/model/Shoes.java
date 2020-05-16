@@ -15,7 +15,7 @@ public class Shoes extends LowerBodyProduct {
     }
 
     protected String getBasicShoesData() {
-        return getBasicProductData()+", Shoes color: "+colorShoes;
+        return getBasicLowerBodyProductData()+", Shoes color: "+colorShoes;
     }
 
     @Override
