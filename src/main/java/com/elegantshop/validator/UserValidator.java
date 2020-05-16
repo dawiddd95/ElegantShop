@@ -33,7 +33,7 @@ public class UserValidator {
     }
 
     private boolean isLoginLengthEnough(String login) {
-        return login.length() >= 6;
+        return login.length() >= MIN_LENGTH_LOGIN;
     }
 
     private boolean isValidatePassword(User user) throws UserShortLengthPasswordException, UserNoneUpperLetterPasswordException, UserNoneLowerLetterPasswordException, UserNoneNumberPasswordException {
