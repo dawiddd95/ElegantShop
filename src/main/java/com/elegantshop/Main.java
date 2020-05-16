@@ -14,7 +14,6 @@ public class Main {
         System.out.println("MANAGEMENT MENU");
         System.out.println("1 - Zaloguj się");
         System.out.println("2 - Zarejestruj się");
-        System.out.println("3 - Lista userów");
         System.out.println("0 - Wyjdź");
     }
 
